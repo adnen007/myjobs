@@ -1,0 +1,74 @@
+.search {
+}
+.search::after {
+  content: "";
+  width: 300px;
+  height: 200px;
+}
+
+.search :global(.container) {
+  max-width: 100%;
+}
+.search .content {
+  background-color: white;
+  padding: 40px;
+}
+.search .title {
+  font-size: 23px;
+  font-weight: 400;
+}
+.search form {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px 35px;
+}
+@media (min-width: 544px) {
+  .search form {
+    grid-template-columns: repeat(auto-fill, minmax(287.5px, 1fr));
+  }
+}
+@media (min-width: 992px) {
+  .search form {
+    grid-template-columns: repeat(auto-fill, minmax(261px, 1fr));
+  }
+}
+@media (min-width: 1200px) {
+  .search form {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+.search form .row {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  gap: 12.5px;
+  justify-content: flex-end;
+}
+.search .row label {
+  color: #5c5858;
+}
+.search .row input[type="text"],
+.search .row select {
+  background: var(--mainColor);
+  border: 1px solid #d6caca;
+  border-radius: 5px;
+  padding-left: 10px;
+  height: 37px;
+  font-size: 15px;
+}
+.search .row input[type="text"] {
+}
+.search .row select {
+}
+.search .row select option {
+}
+.search .row button {
+  height: 37px;
+  background: #f8d7da;
+  color: #90202a;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 5px;
+}

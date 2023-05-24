@@ -1,0 +1,96 @@
+.barChar {
+  margin-top: 50px;
+  padding: 0 40px;
+  display: grid;
+  grid-template-rows: 260px 50px;
+  grid-template-columns: 7px auto;
+  max-width: 1000px;
+}
+.barChar :global(.container) {
+}
+.barChar .y {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.barChar .y > div {
+  position: relative;
+  border-top: solid 1px gray;
+}
+.barChar .y > div > span {
+  position: absolute;
+  top: 0;
+  left: -5px;
+  transform: translatey(-50%);
+  transform: translate(-100%, -50%);
+}
+
+.barChar .body {
+  position: relative;
+}
+.barChar .body .grids {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(5, 1fr) 0.5fr;
+  grid-template-rows: repeat(4, 1fr);
+  height: 100%;
+}
+.barChar .body .grids > div {
+  border: gray 1px;
+  border-style: dashed;
+}
+.barChar .body .bars {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+.barChar .bars .bar {
+  padding: 0 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.barChar .bars .bar:hover {
+  background-color: #bcacac;
+}
+.barChar .body .bar .innerBox {
+  background: blue;
+  height: 0%;
+  animation: bars 1s linear 0.2s;
+  animation-fill-mode: forwards;
+}
+.barChar .body .square {
+  display: none;
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  border-radius: 5px;
+}
+
+.barChar .body .square.on {
+  display: block;
+  transition: 0.5s;
+}
+
+.barChar .x {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.barChar .x > div {
+}
+.barChar .x > div > .text {
+  white-space: nowrap;
+}
+
+@keyframes bars {
+  100% {
+    height: 100%;
+  }
+}

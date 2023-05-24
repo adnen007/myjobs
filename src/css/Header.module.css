@@ -1,0 +1,64 @@
+.header {
+  display: flex;
+  background-color: white;
+  height: 80px;
+}
+.header > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .menu_icon {
+  cursor: pointer;
+}
+.header .menu_icon svg {
+  color: var(--secondColor);
+  font-size: 30px;
+}
+.header > div > h1 {
+  font-size: 30px;
+  display: none;
+  font-weight: 300;
+}
+@media (min-width: 992px) {
+  .header > div > h1 {
+    display: block;
+  }
+}
+.header .account {
+  display: flex;
+  gap: 9px;
+  background-color: var(--secondColor);
+  color: white;
+  padding: 5px 8px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 7px;
+  font-size: 16px;
+  position: relative;
+}
+.header .account svg:first-child {
+  font-size: 20px;
+}
+.header .account svg:last-child {
+}
+.header .account .name {
+}
+.header .account .logout {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+
+  justify-content: center;
+  background: #dbe9ff;
+  color: var(--secondColor);
+  width: 100%;
+  padding: 7px;
+  border-radius: 7px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.header .account .logout.active {
+  display: flex;
+}

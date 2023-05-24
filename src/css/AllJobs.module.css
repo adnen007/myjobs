@@ -1,0 +1,32 @@
+.all_jobs {
+  padding: 40px 0;
+}
+.all_jobs .search {
+}
+.all_jobs .jobs_list {
+}
+.all_jobs .jobs_list :global(.container) {
+  max-width: 100%;
+}
+
+.all_jobs .jobs_list :global(.container) h2 {
+  margin-top: 30px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.all_jobs .jobs_list :global(.container) .content {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+@media (min-width: 992px) {
+  .all_jobs .jobs_list :global(.container) .content {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 0.5fr));
+  }
+}
+@media (min-width: 1200px) {
+  .all_jobs .jobs_list :global(.container) .content {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 0.5fr));
+  }
+}

@@ -1,0 +1,25 @@
+.stats {
+  padding: 40px 0;
+}
+.stats :global(.container) {
+  max-width: 100%;
+}
+.title {
+  margin: 70px auto 0;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  width: fit-content;
+}
+
+.chart_type {
+  color: var(--secondColor);
+  font-size: 18px;
+  font-weight: 500;
+  width: fit-content;
+  margin: 30px auto 0;
+}
+
+.chart {
+  height: 300px;
+}

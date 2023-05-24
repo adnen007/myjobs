@@ -1,17 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import { MenuContext } from "./contexts/menuContext";
+import { MainContext } from "./contexts/mainContext";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+    <MenuContext>
+      <MainContext>
+        <App />
+      </MainContext>
+    </MenuContext>
+  </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//next add in the steps on building react website the steps like
+// 1- point out the pages and the component form the design
+// 2- create the pages and the components and do the routing. to the pages
+// 3- do the routing
+// 4- start to write the jsx and make sure to see the mobile and the desktop
+//version inculde all the elment that go to css and start by the mobile version
+
+//create the menu and do the css in mobile than in the desktop.
+
+// in css module you can use a global class by :global(classname).
+//and i think it is good practice to keep the component father with a global class so i can
+//use another component from other places and change thim depend on that class

@@ -1,0 +1,52 @@
+.status_stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 28px;
+}
+.status_stats > div {
+  background: white;
+  padding: 36px 30px;
+  border-bottom: solid 5px;
+  border-radius: 5px;
+}
+.status_stats > div .icon {
+  font-size: 38px;
+  padding: 13px 18px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+.status_stats .pending {
+  color: #e9b949;
+}
+.status_stats .pending .icon {
+  background: #fcefc7;
+}
+.status_stats .interview {
+  color: #647acb;
+}
+.status_stats .interview .icon {
+  background: #e0e8f9;
+}
+.status_stats .declined {
+  color: #d66a6a;
+}
+.status_stats .declined .icon {
+  background: #ffeeee;
+}
+.status_stats .top {
+  font-size: 46px;
+  display: flex;
+  font-weight: 700;
+  justify-content: space-between;
+  align-items: center;
+}
+.status_stats .top span,
+.status_stats .top svg {
+  display: block;
+}
+.status_stats .bottom {
+  margin-top: 22px;
+  font-size: 18px;
+  color: black;
+}

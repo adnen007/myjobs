@@ -1,0 +1,81 @@
+.add_jobs {
+  padding: 40px 0;
+}
+
+.add_jobs :global(.container) {
+  max-width: 100%;
+}
+.add_jobs .content {
+  background-color: white;
+  padding: 40px;
+}
+.add_jobs .title {
+  font-size: 23px;
+  font-weight: 400;
+}
+.add_jobs form {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px 35px;
+}
+@media (min-width: 544px) {
+  .add_jobs form {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+}
+@media (min-width: 992px) {
+  .add_jobs form {
+    grid-template-columns: repeat(auto-fill, minmax(261px, 1fr));
+  }
+}
+@media (min-width: 1200px) {
+  .add_jobs form {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+.add_jobs form .row {
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+  gap: 12.5px;
+  justify-content: flex-end;
+}
+.add_jobs form .row:last-child {
+  flex-direction: row;
+  align-items: flex-end;
+}
+.add_jobs .row label {
+  color: #5c5858;
+}
+.add_jobs .row input[type="text"],
+.add_jobs .row select {
+  background: var(--mainColor);
+  border: 1px solid #d6caca;
+  border-radius: 5px;
+  padding-left: 10px;
+  height: 37px;
+  font-size: 15px;
+}
+.add_jobs .row input[type="text"] {
+}
+.add_jobs .row select {
+}
+.add_jobs .row select option {
+}
+.add_jobs .row:last-child button {
+  height: 37px;
+  width: 100%;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.add_jobs .row:last-child .clear {
+  background: #627d98;
+  color: white;
+}
+.add_jobs .row:last-child .submit {
+  background: var(--secondColor);
+  color: white;
+}

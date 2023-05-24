@@ -1,0 +1,88 @@
+.job_box {
+  background-color: white;
+  border-radius: 4px;
+}
+.job_box .top {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  padding: 15px;
+  border-bottom: 1px #dadee2 solid;
+}
+.job_box .top .icon {
+  font-size: 28px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  color: white;
+  background: var(--secondColor);
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+.job_box .top .info {
+  font-weight: 500;
+}
+.job_box .info .position {
+}
+.job_box .info .company {
+  margin-top: 5px;
+  color: #627d98;
+  font-size: 15px;
+}
+.job_box .bottom {
+  padding: 20px;
+  cursor: pointer;
+}
+.job_box .bottom .detail {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+.job_box .bottom .detail > div {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.job_box .bottom .detail > div > div {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: #627d98;
+}
+.job_box .bottom .detail > div svg {
+  display: inline-block;
+}
+.job_box .bottom .detail > div .state {
+  background: #e0e8f9;
+  width: fit-content;
+  padding: 4px 16px;
+  border-radius: 4px;
+}
+.job_box .editing {
+  display: flex;
+  padding: 20px 0;
+  gap: 30px;
+  font-size: 17px;
+  margin-top: 10px;
+}
+.job_box .editing .edit {
+  background-color: #d1e7dd;
+
+  padding: 6px 11px;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.job_box .editing .edit a {
+  color: #0f5132;
+  text-decoration: none;
+}
+.job_box .editing .delete {
+  color: #90202a;
+  background-color: #f8d7da;
+  padding: 6px 14px;
+  font-weight: 500;
+  border-radius: 5px;
+}

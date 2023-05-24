@@ -1,0 +1,42 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--secondColor);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+}
+
+:global(.menu) .logo {
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 700;
+}
+@media (min-width: 992px) {
+  .logo {
+    display: none;
+  }
+  :global(.menu) .logo {
+    display: flex;
+  }
+}
+.logo span {
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: var(--secondColor);
+  /* padding: 4px; */
+  display: flex;
+  width: 26px;
+  height: 26px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+:global(.menu) .logo span {
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+}
