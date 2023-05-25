@@ -3,26 +3,23 @@ import AllJobs from "./components/pages/AllJobs";
 import Stats from "./components/pages/Stats";
 import AddJobs from "./components/pages/AddJobs";
 import Profile from "./components/pages/Profile";
-import Header from "./components/Header";
-import Menu from "./components/Menu";
+import Home from "./components/pages/Home";
+import Landing from "./components/pages/Landing";
 
 import "./App.css";
 
 function App() {
   return (
     <div className="app">
-      <Menu />
-      <div className="content">
-        <Header />
-        <Routes>
-          <Route path="/">
-            <Route index element={<Stats />} />
-            <Route path="all-jobs" element={<AllJobs />} />
-            <Route path="add-jobs" element={<AddJobs />} />
-            <Route path="profile" element={<Profile />} />
-          </Route>
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/landing" element={<Landing />} />
+        <Route path="/" element={<Home />}>
+          <Route index element={<Stats />} />
+          <Route path="all-jobs" element={<AllJobs />} />
+          <Route path="add-jobs" element={<AddJobs />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

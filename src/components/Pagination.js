@@ -2,7 +2,6 @@ import S from "../css/Pagination.module.css";
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from "react-icons/md";
 import { context } from "../contexts/mainContext";
 import { useContext } from "react";
-//import useFetch from "../hooks/useFetch";
 
 const Pagination = ({ setQuery, query }) => {
   const { state } = useContext(context);

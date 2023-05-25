@@ -6,18 +6,21 @@ import { FaRegListAlt } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
 import { GrFormClose } from "react-icons/gr";
 import S from "../css/menu.module.css";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { context } from "../contexts/menuContext";
 
 const Menu = () => {
   const { state, dispatch } = useContext(context);
-  const [active, setActive] = useState(9);
+
   const items = [
     { path: "/", content: "Stats", icon: <GoGraph /> },
     { path: "/all-jobs", content: "All jobs", icon: <VscGraphLine /> },
     { path: "/add-jobs", content: "Add job", icon: <FaRegListAlt /> },
     { path: "/profile", content: "Profile", icon: <ImProfile /> },
   ];
+
+  const sections = ["/", "/all-jobs", "/add-jobs", "/profile"];
+
   return (
     <div className={`menu ${state.menu ? "on" : "off"}`}>
       <div className={S.content}>
@@ -37,16 +40,15 @@ const Menu = () => {
             return (
               <li
                 key={i}
-                className={active === i ? S.active : ""}
+                className={sections.indexOf(window.location.pathname) === i ? S.active : ""}
                 onClick={() => {
-                  if (window.innerWidth <= 992) {
-                    dispatch({ type: "MENU_OFF" });
-                  }
-
-                  setActive(i);
+                  dispatch({ type: "CHANGE_ACTIVE_SECTION" });
                 }}
               >
-                {item.icon} <Link to={item.path}>{item.content}</Link>
+                <Link to={item.path}>
+                  {item.icon}
+                  {item.content}
+                </Link>
               </li>
             );
           })}

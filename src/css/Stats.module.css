@@ -18,8 +18,10 @@
   font-weight: 500;
   width: fit-content;
   margin: 30px auto 0;
+  cursor: pointer;
 }
 
 .chart {
   height: 300px;
+  margin-top: 30px;
 }

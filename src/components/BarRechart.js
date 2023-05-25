@@ -1,10 +1,9 @@
 import { BarChart, Bar, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
-const BarRechart = ({ data: real }) => {
-  console.log(real);
+const BarRechart = ({ data }) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart maxBarSize={80} data={real} barCategoryGap="10%">
+      <BarChart maxBarSize={80} data={data} barCategoryGap="10%">
         <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
         <XAxis dataKey="date" />
         <YAxis padding={{ top: 45 }} tickCount={5} />

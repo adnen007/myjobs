@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
 .logo {
   display: flex;
   align-items: center;
   gap: 5px;
   color: var(--secondColor);
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 14px;
   letter-spacing: 1.5px;
+  font-family: "Bruno Ace", cursive;
 }
 
 :global(.menu) .logo {
@@ -13,30 +15,45 @@
   font-size: 24px;
   font-weight: 700;
 }
+:global(.landing) .logo {
+  height: 90px;
+  font-weight: 700;
+  font-size: 20px;
+  gap: 10px;
+}
 @media (min-width: 992px) {
   .logo {
     display: none;
   }
+
+  :global(.landing) .logo,
   :global(.menu) .logo {
     display: flex;
   }
 }
+
 .logo span {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   background-color: var(--secondColor);
   /* padding: 4px; */
   display: flex;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  font-family: "Bruno Ace", cursive;
 }
 
 :global(.menu) .logo span {
   width: 50px;
   height: 50px;
+  font-size: 35px;
+}
+:global(.landing) .logo span {
+  width: 48px;
+  height: 52px;
   font-size: 35px;
 }

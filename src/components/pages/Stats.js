@@ -1,11 +1,11 @@
 import StatusStats from "../StatusStats";
-import AreaChart from "../AreaChart";
-
+import AreaRechart from "../AreaRechart";
 import BarRechart from "../BarRechart";
-
-import S from "../../css/Stats.module.css";
 import { useEffect, useContext, useState } from "react";
 import { context } from "../../contexts/mainContext";
+
+import S from "../../css/Stats.module.css";
+
 const Stats = () => {
   const { state, dispatch } = useContext(context);
   const [chartType, setChartType] = useState(true);
@@ -15,10 +15,6 @@ const Stats = () => {
       const pendindRes = await fetch("http://127.0.0.1:8000/api-v2");
 
       const { data } = await pendindRes.json();
-      //note here when you use awiat the exection context function of this function will stop but
-      // the callstack will not delete the ex.context it will save its reference and when the
-      //the promise after awiat get resolved  the callstack will continue the execution of
-      //that ex.context
 
       dispatch({ type: "STATS", playload: data });
     };
@@ -33,7 +29,7 @@ const Stats = () => {
         <div onClick={() => setChartType(!chartType)} className={S.chart_type}>
           {chartType ? "Area Chart" : "Bar Chart"}
         </div>
-        <div className={S.chart}>{chartType ? <BarRechart data={state.stats.monthlyStats} /> : <AreaChart />}</div>
+        <div className={S.chart}>{chartType ? <BarRechart data={state.stats.monthlyStats} /> : <AreaRechart data={state.stats.monthlyStats} />}</div>
       </div>
     </div>
   );

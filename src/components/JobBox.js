@@ -2,12 +2,14 @@ import { FaLocationArrow, FaCalendarAlt } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
 import S from "../css/JobBox.module.css";
 import { context } from "../contexts/mainContext";
+import { context as menuContext } from "../contexts/menuContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { convertTime } from "../utils/mainUtilis";
 
 const JobBox = ({ url, element: { company, date, position, status, location, type, _id } }) => {
   const { dispatch } = useContext(context);
+  const { dispatch: menuDispatch } = useContext(menuContext);
 
   const deleteItem = async (id) => {
     try {
@@ -54,7 +56,7 @@ const JobBox = ({ url, element: { company, date, position, status, location, typ
         </div>
         <div className={S.editing}>
           <div className={S.edit}>
-            <Link to="/add-jobs" state={{ element: { company, position, status, location, type, _id } }}>
+            <Link onClick={() => menuDispatch({ type: "CHANGE_ACTIVE_SECTION" })} to="/add-jobs" state={{ element: { company, position, status, location, type, _id } }}>
               Edit
             </Link>
           </div>

@@ -41,14 +41,15 @@
   padding-top: 20px;
   /* font-size: 22px; */
 }
-.content ul li {
+.content ul li a {
+  text-decoration: none;
   color: #627d98;
   display: flex;
   align-items: center;
   gap: 20px;
   margin-top: 30px;
 }
-.content ul li.active {
+.content ul li.active a {
   color: var(--secondColor);
 }
 .content ul li svg {
@@ -91,9 +92,7 @@
     padding-left: 30px;
   }
 }
-.content ul li a {
-  text-decoration: none;
-}
+
 /*
 .content ul li.click svg {
   color: var(--secondColor);
