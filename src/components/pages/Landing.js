@@ -17,7 +17,7 @@ const Landing = () => {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis nulla dolores nemo labore fugit animi, fuga, qui voluptates minus illo omnis eaque enim dicta! Voluptatibus quos neque
               exercitationem omnis architecto.
             </div>
-            <Link>Login/Register</Link>
+            <Link to="/register">Login/Register</Link>
           </div>
           <div className={S.image}>
             <img src={landingImage} />

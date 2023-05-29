@@ -1,0 +1,28 @@
+.not_found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.not_found img {
+  display: block;
+  max-width: 80%;
+}
+
+@media (min-width: 768px) {
+  .not_found img {
+    display: block;
+    max-width: 50%;
+  }
+}
+
+.not_found a {
+  text-decoration: none;
+  font-size: 20px;
+  margin-top: 40px;
+  background: var(--secondColor);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 5px;
+}

@@ -5,6 +5,8 @@ import AddJobs from "./components/pages/AddJobs";
 import Profile from "./components/pages/Profile";
 import Home from "./components/pages/Home";
 import Landing from "./components/pages/Landing";
+import Register from "./components/pages/Register";
+import NotFound from "./components/pages/NotFound";
 
 import "./App.css";
 
@@ -13,12 +15,14 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/landing" element={<Landing />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={<Home />}>
           <Route index element={<Stats />} />
           <Route path="all-jobs" element={<AllJobs />} />
           <Route path="add-jobs" element={<AddJobs />} />
           <Route path="profile" element={<Profile />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

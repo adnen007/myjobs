@@ -6,6 +6,7 @@ import { context as menuContext } from "../contexts/menuContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { convertTime } from "../utils/mainUtilis";
+import { toast } from "react-toastify";
 
 const JobBox = ({ url, element: { company, date, position, status, location, type, _id } }) => {
   const { dispatch } = useContext(context);
@@ -21,10 +22,16 @@ const JobBox = ({ url, element: { company, date, position, status, location, typ
       const response = await fetch(`http://127.0.0.1:8000/api-v2?${url}`);
       const data = await response.json();
 
+      toast.success("Job Deleted", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+
       dispatch({ type: "GET_JOBS", playload: data });
     } catch (err) {
       console.log(err);
-      dispatch({ type: "JOBS_ERROR", playload: err });
+      toast.error("Error", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
   };
 

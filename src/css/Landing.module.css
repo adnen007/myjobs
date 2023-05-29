@@ -34,13 +34,14 @@
 }
 
 .main .content a {
+  display: block;
   text-decoration: none;
   background: var(--secondColor);
   width: fit-content;
   color: white;
   font-size: 19px;
   font-weight: 500;
-  padding: 7px 20px;
+  padding: 10px 20px;
   border-radius: 7px;
   margin-top: 18px;
 }

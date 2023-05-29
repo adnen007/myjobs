@@ -3,7 +3,7 @@ import AreaRechart from "../AreaRechart";
 import BarRechart from "../BarRechart";
 import { useEffect, useContext, useState } from "react";
 import { context } from "../../contexts/mainContext";
-
+import Loading from "../Loading";
 import S from "../../css/Stats.module.css";
 
 const Stats = () => {
@@ -12,25 +12,37 @@ const Stats = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const pendindRes = await fetch("http://127.0.0.1:8000/api-v2");
+      dispatch({ type: "JOBS_LOADING", playload: true });
+      try {
+        const pendindRes = await fetch("http://127.0.0.1:8000/api-v2");
 
-      const { data } = await pendindRes.json();
+        const { data } = await pendindRes.json();
 
-      dispatch({ type: "STATS", playload: data });
+        dispatch({ type: "STATS", playload: data });
+      } catch (err) {
+        dispatch({ type: "ERROR", playload: true });
+        alert("something went wrong");
+      }
     };
     getData();
   }, [dispatch]);
 
   return (
     <div className={S.stats}>
-      <div className="container">
-        <StatusStats data={state.stats.jobStats} />
-        <div className={S.title}>Monthly Applications</div>
-        <div onClick={() => setChartType(!chartType)} className={S.chart_type}>
-          {chartType ? "Area Chart" : "Bar Chart"}
+      {state.jobsStatus.loading ? (
+        <div className="center">
+          <Loading />
         </div>
-        <div className={S.chart}>{chartType ? <BarRechart data={state.stats.monthlyStats} /> : <AreaRechart data={state.stats.monthlyStats} />}</div>
-      </div>
+      ) : (
+        <div className="container">
+          <StatusStats data={state.stats.jobStats} />
+          <div className={S.title}>Monthly Applications</div>
+          <div onClick={() => setChartType(!chartType)} className={S.chart_type}>
+            {chartType ? "Area Chart" : "Bar Chart"}
+          </div>
+          <div className={S.chart}>{chartType ? <BarRechart data={state.stats.monthlyStats} /> : <AreaRechart data={state.stats.monthlyStats} />}</div>
+        </div>
+      )}
     </div>
   );
 };

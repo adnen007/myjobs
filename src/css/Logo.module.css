@@ -10,9 +10,10 @@
   font-family: "Bruno Ace", cursive;
 }
 
-:global(.menu) .logo {
-  gap: 12px;
-  font-size: 24px;
+:global(.menu) .logo,
+:global(.register) .logo {
+  gap: 11px;
+  font-size: 21px;
   font-weight: 700;
 }
 :global(.landing) .logo {
@@ -27,7 +28,8 @@
   }
 
   :global(.landing) .logo,
-  :global(.menu) .logo {
+  :global(.menu) .logo,
+  :global(.register) .logo {
     display: flex;
   }
 }
@@ -47,10 +49,11 @@
   font-family: "Bruno Ace", cursive;
 }
 
-:global(.menu) .logo span {
-  width: 50px;
-  height: 50px;
-  font-size: 35px;
+:global(.menu) .logo span,
+:global(.register) .logo span {
+  width: 46px;
+  height: 48px;
+  font-size: 31px;
 }
 :global(.landing) .logo span {
   width: 48px;

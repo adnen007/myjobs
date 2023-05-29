@@ -10,7 +10,13 @@ import Loading from "../Loading";
 
 const AllJobs = () => {
   const { state, dispatch } = useContext(context);
-  const [query, setQuery] = useState({ searchText: "", status: "", type: "", sort: "latest", page: 0 });
+  const [query, setQuery] = useState({
+    searchText: "",
+    status: "",
+    type: "",
+    sort: "latest",
+    page: 0,
+  });
   let url = convertQueryToUrl(query);
 
   useEffect(() => {
@@ -24,7 +30,8 @@ const AllJobs = () => {
         dispatch({ type: "GET_JOBS", playload: data });
       } catch (err) {
         console.log(err);
-        dispatch({ type: "JOBS_ERROR", playload: err });
+        dispatch({ type: "ERROR", playload: true });
+        alert("something went wrong check your internet or try later");
       }
     };
 
@@ -36,8 +43,6 @@ const AllJobs = () => {
       <Search query={query} setQuery={setQuery} />
       {state.jobsStatus.loading ? (
         <Loading />
-      ) : state.jobsStatus.err ? (
-        <h1>{state.jobsStatus.err}</h1>
       ) : (
         <>
           <div className={S.jobs_list}>

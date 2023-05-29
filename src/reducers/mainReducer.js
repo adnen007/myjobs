@@ -44,16 +44,16 @@ const mainReducer = (state, action) => {
       return { date: e[0], count: e[1] };
     });
 
-    return { ...state, stats: { ...state.stats, jobStats, monthlyStats } };
+    return { ...state, stats: { ...state.stats, jobStats, monthlyStats }, jobsStatus: { ...state.jobsStatus, err: false, loading: false } };
   }
 
   if (action.type === "GET_JOBS") {
-    return { ...state, jobs: { ...state.jobs, jobsList: action.playload.data, jobsNumber: action.playload.length }, jobsStatus: { ...state.jobsStatus, loading: false } };
+    return { ...state, jobs: { ...state.jobs, jobsList: action.playload.data, jobsNumber: action.playload.length }, jobsStatus: { ...state.jobsStatus, loading: false, err: false } };
   }
   if (action.type === "JOBS_LOADING") {
     return { ...state, jobsStatus: { ...state.jobsStatus, loading: action.playload } };
   }
-  if (action.type === "JOBS_ERROR") {
+  if (action.type === "ERROR") {
     return { ...state, jobsStatus: { ...state.jobsStatus, err: action.playload } };
   }
 };

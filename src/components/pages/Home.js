@@ -8,7 +8,9 @@ const Home = ({}) => {
       <Menu />
       <div className="content">
         <Header />
-        <Outlet />
+        <section>
+          <Outlet />
+        </section>
       </div>
     </>
   );

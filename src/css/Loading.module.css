@@ -5,6 +5,7 @@
   margin: 40px auto;
   /* margin: auto; */
 }
+
 .lds_dual_ring::after {
   content: "";
   display: block;

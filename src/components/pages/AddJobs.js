@@ -1,6 +1,7 @@
 import S from "../../css/AddJobs.module.css";
 import { useLocation } from "react-router";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const AddJobs = () => {
   const [job, setJob] = useState({
@@ -31,27 +32,37 @@ const AddJobs = () => {
       if (job[x] === "") window.alert("PLEASE FILL ALL THE FIELDS ");
     }
 
-    if (!locationState) {
-      const res = await fetch("http://127.0.0.1:8000/api-v2/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(job),
+    try {
+      if (!locationState) {
+        const res = await fetch("http://127.0.0.1:8000/api-v2/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(job),
+        });
+        await res.json();
+        toast.success("Job Created", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      } else {
+        const res = await fetch(`http://127.0.0.1:8000/api-v2/${job._id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(job),
+        });
+        await res.json();
+
+        toast.success("Job Modified", {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
+    } catch (err) {
+      toast.error("Error Something Went Wrong", {
+        position: toast.POSITION.TOP_CENTER,
       });
-      await res.json();
-      alert("JOB CREATED");
-    } else {
-      const res = await fetch(`http://127.0.0.1:8000/api-v2/${job._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(job),
-      });
-      await res.json();
-      alert("JOB updated");
-      //update instead fo posting.
     }
   };
 

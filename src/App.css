@@ -6,6 +6,15 @@
 .app .content {
   width: 0px;
   flex-grow: 1;
-  max-height: 100vh;
+}
+.app .content section {
+  max-height: calc(100% - 80px);
   overflow-y: scroll;
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

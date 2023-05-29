@@ -5,12 +5,16 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { MenuContext } from "./contexts/menuContext";
 import { MainContext } from "./contexts/mainContext";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <MenuContext>
       <MainContext>
         <App />
+        <ToastContainer />
       </MainContext>
     </MenuContext>
   </BrowserRouter>

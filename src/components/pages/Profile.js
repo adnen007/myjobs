@@ -1,8 +1,13 @@
 import S from "../../css/Profile.module.css";
 import { useState, useEffect } from "react";
-
+import { toast } from "react-toastify";
 const Profile = () => {
-  const [profile, setProfile] = useState({ name: "", lastName: "", email: "", location: "" });
+  const [profile, setProfile] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    location: "",
+  });
 
   useEffect(() => {
     const getData = async () => {
@@ -15,6 +20,9 @@ const Profile = () => {
       getData();
     } catch (err) {
       console.log(err);
+      toast.error("Error", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
   }, []);
 
@@ -22,7 +30,9 @@ const Profile = () => {
     e.preventDefault();
     for (let x in profile) {
       if (profile[x] === "") {
-        alert("PLEASE FILL ALL FIELDS");
+        toast.warn("Please Fill All The Fields", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         return;
       }
     }
@@ -38,9 +48,14 @@ const Profile = () => {
 
       await res.json();
 
-      alert("PROFILE UPDATED");
+      toast.success("User Updated", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     } catch (err) {
       console.log(err);
+      toast.error("Error", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     }
   };
 
